@@ -8,10 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PFLogInViewControllerDelegate{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func viewDidAppear() {
+        super.viewDidAppear(true)
+        
+        var logInController = PFLogInViewController()
+        logInController.delegate = self
+        self.presentViewController(logInController, animated: true, completion: nil)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
